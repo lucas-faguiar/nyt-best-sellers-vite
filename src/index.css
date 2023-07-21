@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgb(48, 40, 31);
-  background-color: #FCF7F2;
+  background-color: rgb(254, 253, 252);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,11 +31,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 2em;
-  line-height: 1.1;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -55,16 +50,49 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.site-title {
+header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  background-color: rgb(243, 236, 229);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(243, 236, 229);
+  height: 50px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2em;
+  line-height: 1.1;
 }
 
 .site-body {
   position: absolute;
-  top: 130px;
+  top: 40px;
   left: 0;
   right: 0;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fade-in 1.2s;
+}
+
+span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

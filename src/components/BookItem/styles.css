@@ -1,3 +1,43 @@
 .book-item {
-    display: flex;
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.book-item-main {
+  width: 100%;
+  max-height: 20px;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  text-align: initial;
+  background-color: rgb(252, 247, 242);
+  box-shadow: rgba(88, 77, 64, 0.3) 0px 2px 4px 0px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.book-item-main:hover,
+.book-item-main.active {
+  background-color: rgb(243, 236, 229);
+  box-shadow: none;
+}
+
+.book-index {
+  width: 10%;
+  font-size: 1em;
+  font-weight: 600;
+  color: rgb(44, 101, 84);
+}
+
+.book-title {
+  width: 60%;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.book-author {
+  width: 30%;
+  font-size: 1em;
+  font-weight: 500;
 }

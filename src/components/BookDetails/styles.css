@@ -1,0 +1,15 @@
+
+
+.book-item-body-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+    padding: 10px;
+    background-color: rgb(243, 236, 229);
+  }
+  
+  .book-item-body-details * {
+    margin: 0;
+  }

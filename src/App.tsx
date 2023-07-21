@@ -23,14 +23,16 @@ function App() {
   }, []);
 
   return (
-    <main>
-      <div className="site-title">
+    <>
+      <header>
         <h1>Best Seller Books from NYT</h1>
-      </div>
-      <div className="site-body">
-        {loading ? <Loading /> : <BookList books={books} />}
-      </div>
-    </main>
+      </header>
+      <main className="fadeIn">
+        <div className="site-body">
+          {loading ? <Loading /> : <BookList books={books} />}
+        </div>
+      </main>
+    </>
   );
 }
 
