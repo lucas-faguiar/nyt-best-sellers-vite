@@ -4,7 +4,7 @@ import nytApi from "./api/nytApi";
 import { Book } from "./interfaces/book";
 import GenericList from "./components/GenericList";
 import { BookItem } from "./components/BookItem";
-import { SearchFields } from "./interfaces/search";
+import { SearchFields, SearchType } from "./interfaces/search";
 import "./App.css";
 import { Pagination } from "./components/Pagination";
 
@@ -38,9 +38,9 @@ function App() {
     setSelectedBookIndex(index);
   };
 
-  const onSearch = (searchText: string) => {
+  const onSearch = (searchText: string, type: SearchType) => {
     setSearchText(searchText);
-    const searchFieldsNew = { ...searchFields, title: searchText, page: 1 };
+    const searchFieldsNew = { [type]: searchText, page: 1 };
     setSearchFields(searchFieldsNew);
   };
 

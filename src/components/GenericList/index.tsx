@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Loading } from "../Loading";
 import { Search } from "../Search";
 import "./styles.css";
+import { SearchType } from "../../interfaces/search";
 
 interface GenericListProps<T> {
   items: T[];
@@ -9,7 +10,7 @@ interface GenericListProps<T> {
   itemComponent: FC<GenericItemProps<T>>;
   onSelectItem: (index: number) => void;
   activeIndex: number;
-  onSearch: (searchText: string) => void;
+  onSearch: (searchText: string, type: SearchType) => void;
   searchText: string;
   loading: boolean;
   totalFound: number;

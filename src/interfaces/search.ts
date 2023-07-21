@@ -20,3 +20,10 @@ export interface SearchResults<T> {
   total: number;
   error?: SearchError;
 }
+
+export enum SearchType {
+  TITLE = "title",
+  AUTHOR = "author",
+  PUBLISHER = "publisher",
+  ISBN = "isbn",
+}

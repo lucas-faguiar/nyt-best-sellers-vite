@@ -4,3 +4,14 @@
   font-weight: 400;
   border-radius: 5px;
 }
+
+.search-type {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.search-type label {
+  font-weight: 500;
+  cursor: pointer;
+}
