@@ -1,0 +1,15 @@
+.book-list {
+    margin: 0 60px;
+  }
+
+.book-list-header {
+  display: grid;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2C6554;
+}
+
+.book-list-header-item {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
