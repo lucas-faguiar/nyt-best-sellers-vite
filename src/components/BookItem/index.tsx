@@ -7,6 +7,7 @@ import { GenericItemProps } from "../GenericList";
 export const BookItem: FC<GenericItemProps<Book>> = ({
   item,
   index,
+  page,
   active,
   onClick,
 }) => {
@@ -16,7 +17,7 @@ export const BookItem: FC<GenericItemProps<Book>> = ({
     <>
       <div className="book-item">
         <div key={item.title} className={classNames} onClick={onClick}>
-          <span className="book-index">#{index + 1}</span>
+          <span className="book-index">#{(page - 1) * 20 + index + 1}</span>
           <span className="book-title">{item.title}</span>
           <span className="book-author">{item.author}</span>
         </div>
