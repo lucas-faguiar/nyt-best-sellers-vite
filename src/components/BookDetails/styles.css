@@ -8,6 +8,7 @@
     text-align: left;
     padding: 10px;
     background-color: rgb(243, 236, 229);
+    border-radius: 5px;
   }
   
   .book-item-body-details * {

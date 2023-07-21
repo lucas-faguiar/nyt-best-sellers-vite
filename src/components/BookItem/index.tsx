@@ -2,16 +2,10 @@ import { FC } from "react";
 import { Book } from "../../interfaces/book";
 import "./styles.css";
 import { BookDetails } from "../BookDetails";
+import { GenericItemProps } from "../GenericList";
 
-interface BookItemProps {
-  book: Book;
-  index: number;
-  active: number;
-  onClick: () => void;
-}
-
-export const BookItem: FC<BookItemProps> = ({
-  book,
+export const BookItem: FC<GenericItemProps<Book>> = ({
+  item,
   index,
   active,
   onClick,
@@ -21,15 +15,15 @@ export const BookItem: FC<BookItemProps> = ({
   return (
     <>
       <div className="book-item">
-        <div key={book.title} className={classNames} onClick={onClick}>
+        <div key={item.title} className={classNames} onClick={onClick}>
           <span className="book-index">#{index + 1}</span>
-          <span className="book-title">{book.title}</span>
-          <span className="book-author">{book.author}</span>
+          <span className="book-title">{item.title}</span>
+          <span className="book-author">{item.author}</span>
         </div>
       </div>
       {isActive && (
         <div className="book-list-body-details-container">
-          <BookDetails book={book} />
+          <BookDetails book={item} />
         </div>
       )}
     </>

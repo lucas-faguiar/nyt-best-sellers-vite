@@ -1,23 +1,23 @@
-.book-list {
+.generic-list {
   padding: 60px;
 }
 
-.book-list-header {
+.generic-list-header {
   display: grid;
   margin-bottom: 20px;
   border-bottom: 2px solid #2c6554;
 }
 
-.book-list-header-item {
+.generic-list-header-item {
   font-weight: 600;
 }
 
-.book-list-body {
+.generic-list-body {
   display: flex;
   gap: 10px;
 }
 
-.book-list-body-items-container {
+.generic-list-body-items-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -25,11 +25,18 @@
   gap: 10px;
 }
 
+.generic-list-empty {
+  width: 100%;
+}
+.generic-list-empty h3 {
+  font-weight: 400;
+}
+
 @media only screen and (max-width: 800px) {
-  .book-list {
+  .generic-list {
     padding: 60px 15px;
   }
-  .book-list-body {
+  .generic-list-body {
     flex-direction: column;
   }
 }

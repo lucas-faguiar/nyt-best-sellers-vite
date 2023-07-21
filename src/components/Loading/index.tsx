@@ -1,5 +1,9 @@
 import { FC } from "react";
 
 export const Loading: FC = () => {
-  return <h2>Loading...</h2>;
+  return (
+    <div className="loading">
+      <h2>Loading...</h2>
+    </div>
+  );
 };

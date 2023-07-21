@@ -2,25 +2,29 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import nytApi from "./api/nytApi";
 import { Book } from "./interfaces/book";
-import { BookList } from "./components/BookList";
+import GenericList from "./components/GenericList";
 import { Loading } from "./components/Loading";
+import { BookItem } from "./components/BookItem";
 
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [books, setBooks] = useState<Book[]>([]);
+  const [selectedBookIndex, setSelectedBookIndex] = useState(0);
 
-  const fetchBestSellers = async () => {
-    if (!books.length) {
-      setLoading(true);
-      const booksLoaded = await nytApi.fetchBestSellersBooks();
-      setBooks(booksLoaded);
-      setLoading(false);
-    }
+  const fetchBestSellersBooks = async (offset: number = 0) => {
+    setLoading(true);
+    const loaded = await nytApi.fetchBestSellersBooks(offset);
+    setBooks(loaded);
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchBestSellers();
+    fetchBestSellersBooks();
   }, []);
+
+  const onSelectBook = (index: number) => {
+    setSelectedBookIndex(index);
+  };
 
   return (
     <>
@@ -29,7 +33,16 @@ function App() {
       </header>
       <main className="fadeIn">
         <div className="site-body">
-          {loading ? <Loading /> : <BookList books={books} />}
+          {loading && <Loading />}
+          {!loading && books && (
+            <GenericList
+              items={books}
+              itemName="Books"
+              itemComponent={BookItem}
+              onSelectItem={onSelectBook}
+              activeIndex={selectedBookIndex}
+            />
+          )}
         </div>
       </main>
     </>
