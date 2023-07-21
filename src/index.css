@@ -96,7 +96,3 @@ span {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.loading {
-  margin-top: 80px;
-}
