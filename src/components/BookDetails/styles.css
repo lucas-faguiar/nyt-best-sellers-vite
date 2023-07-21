@@ -1,5 +1,6 @@
 .book-item-body-details {
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   padding: 10px;
   background-color: rgb(243, 236, 229);
@@ -27,5 +28,5 @@
 }
 
 .section-list-item {
-    border-top: 1px solid #2c6554;
+  border-top: 1px solid #2c6554;
 }

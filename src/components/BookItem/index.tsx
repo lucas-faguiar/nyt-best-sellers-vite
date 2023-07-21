@@ -22,11 +22,7 @@ export const BookItem: FC<GenericItemProps<Book>> = ({
           <span className="book-author">{item.author}</span>
         </div>
       </div>
-      {isActive && (
-        <div className="book-list-body-details-container">
-          <BookDetails book={item} />
-        </div>
-      )}
+      {isActive && <BookDetails book={item} />}
     </>
   );
 };
