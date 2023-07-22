@@ -1,62 +1,22 @@
-import { useEffect, useState } from "react";
-import { useDebounce } from "react-use";
-import nytApi from "./api/nytApi";
-import { Book } from "./interfaces/book";
 import GenericList from "./components/GenericList";
 import { BookItem } from "./components/BookItem";
-import { SearchFields, SearchType } from "./interfaces/search";
 import "./App.css";
 import { Pagination } from "./components/Pagination";
+import { useSearch } from "./hooks/useSearch";
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(false);
-  const [books, setBooks] = useState<Book[]>([]);
-  const [selectedBookIndex, setSelectedBookIndex] = useState(0);
-  const [searchFields, setSearchFields] = useState<SearchFields>({});
-  const [searchText, setSearchText] = useState<string>("");
-  const [totalFound, setTotalFound] = useState<number>(0);
-  const [error, setError] = useState<string>("");
-
-  const fetchBestSellersBooks = async () => {
-    setLoading(true);
-    const { items, total, error } = await nytApi.fetchBestSellersBooks(
-      searchFields
-    );
-    if (error?.fault.detail.errorcode === "policies.ratelimit.QuotaViolation") {
-      setError("Sorry, NYT API rate limit reached. Please try again later.");
-    }
-    setBooks(items);
-    setTotalFound(total);
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchBestSellersBooks();
-  }, []);
-
-  const onSelectBook = (index: number) => {
-    setSelectedBookIndex(index);
-  };
-
-  const onSearch = (searchText: string, type: SearchType) => {
-    setSearchText(searchText);
-    const searchFieldsNew = { [type]: searchText, page: 1 };
-    setSearchFields(searchFieldsNew);
-  };
-
-  const onChangePage = (page: number) => {
-    setLoading(true);
-    const searchFieldsNew = { ...searchFields, page };
-    setSearchFields(searchFieldsNew);
-  };
-
-  useDebounce(
-    () => {
-      fetchBestSellersBooks();
-    },
-    1000,
-    [searchFields]
-  );
+  const {
+    loading,
+    books,
+    selectedBookIndex,
+    searchText,
+    searchFields,
+    totalFound,
+    error,
+    onSelectBook,
+    onSearch,
+    onChangePage,
+  } = useSearch();
 
   return (
     <>

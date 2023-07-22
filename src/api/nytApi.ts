@@ -9,7 +9,7 @@ const fetchBestSellersBooks = async (
 ): Promise<SearchResults<Book>> => {
   // Is empty search
   const isEmptySearch = Object.values(searchFields).every(
-    (x) => x === null || x === ""
+    (x) => x === null || x === "" || x === undefined
   );
 
   // Check if books are on local storage
